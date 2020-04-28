@@ -1,13 +1,12 @@
 package com.dwr.petclinic.services.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.dwr.petclinic.model.BaseEntity;
 
-public abstract class AbstractMapService<T, ID> {
+import java.util.*;
 
-    protected Map<ID, T> map = new HashMap<>();
+public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+//ID extends Long
+    protected Map<Long, T> map = new HashMap<>();
 
     Set<T> findAll(){
         return new HashSet<>(map.values());
@@ -15,9 +14,26 @@ public abstract class AbstractMapService<T, ID> {
     T findById(ID id){
         return map.get(id);
     }
-    T save(ID id, T obj){
-        map.put(id, obj);
+    T save(T obj){
+        if(obj != null){
+            if(obj.getId() == null){
+                obj.setId(getNextId());
+            }
+            map.put(obj.getId(), obj);
+        }else{
+            throw new RuntimeException("Obj cannot be null");
+        }
         return obj;
+    }
+    private Long getNextId(){
+        Long nextId = null;
+        try{
+            nextId = Collections.max(map.keySet()) +1;
+        }catch (NoSuchElementException e){
+            nextId = 1L;
+        }
+
+        return nextId;
     }
     void deleteById(ID id){
         map.remove(id);
@@ -26,4 +42,5 @@ public abstract class AbstractMapService<T, ID> {
         //Returns a Set view of the mappings contained in this map.
         map.entrySet().removeIf(entry -> entry.getValue().equals(obj));
     }
+
 }
