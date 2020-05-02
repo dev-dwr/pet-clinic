@@ -1,5 +1,14 @@
 E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\model\Pet.java
-E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\model\Vet.java
+E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\services\OwnerService.java
 E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\model\Person.java
+E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\services\map\OwnerServiceMap.java
+E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\services\map\PetServiceMap.java
 E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\model\PetType.java
+E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\services\map\AbstractMapService.java
+E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\model\BaseEntity.java
+E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\model\Vet.java
+E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\services\VetService.java
+E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\services\CrudService.java
 E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\model\Owner.java
+E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\services\map\VetServiceMap.java
+E:\Coding\Spring\pet-clinic\pet-clinic-data\src\main\java\com\dwr\petclinic\services\PetService.java
