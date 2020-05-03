@@ -4,6 +4,8 @@ import com.dwr.petclinic.model.BaseEntity;
 
 import java.util.*;
 
+//In Map package we are creating impl of interfaces above
+
 public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
 //ID extends Long
     protected Map<Long, T> map = new HashMap<>();
