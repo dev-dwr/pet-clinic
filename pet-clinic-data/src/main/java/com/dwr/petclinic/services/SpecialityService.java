@@ -1,4 +1,6 @@
 package com.dwr.petclinic.services;
 
-public interface SpecialityService {
+import com.dwr.petclinic.model.Speciality;
+
+public interface SpecialityService extends CrudService<Speciality,Long> {
 }
