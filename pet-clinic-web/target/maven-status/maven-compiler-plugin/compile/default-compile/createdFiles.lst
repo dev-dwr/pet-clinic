@@ -1,5 +1,0 @@
-com\dwr\petclinic\PetClinicApplication.class
-com\dwr\petclinic\controllers\IndexController.class
-com\dwr\petclinic\controllers\VetController.class
-com\dwr\petclinic\controllers\OwnerController.class
-com\dwr\petclinic\bootstrap\DataLoader.class
