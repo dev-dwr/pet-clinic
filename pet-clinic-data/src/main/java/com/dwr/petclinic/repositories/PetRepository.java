@@ -1,0 +1,7 @@
+package com.dwr.petclinic.repositories;
+
+import com.dwr.petclinic.model.Pet;
+import org.springframework.data.repository.CrudRepository;
+
+public interface PetRepository extends CrudRepository<Pet, Long> {
+}
