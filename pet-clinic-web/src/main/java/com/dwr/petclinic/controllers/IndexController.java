@@ -12,7 +12,6 @@ public class IndexController {
     }
     @RequestMapping("/oups")
     public String oupsError(){
-
         return "notimplemented.html";
     }
 }
