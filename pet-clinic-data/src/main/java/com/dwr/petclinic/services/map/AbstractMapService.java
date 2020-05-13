@@ -45,5 +45,4 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
         //Returns a Set view of the mappings contained in this map.
         map.entrySet().removeIf(entry -> entry.getValue().equals(obj));
     }
-
 }
