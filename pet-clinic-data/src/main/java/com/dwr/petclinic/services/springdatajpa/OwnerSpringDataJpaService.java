@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -58,5 +59,10 @@ public class OwnerSpringDataJpaService implements OwnerService {
     @Override
     public void deleteById(Long aLong) {
         ownerRepository.deleteById(aLong);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return ownerRepository.findByLastNameContainingIgnoreCase(lastName);
     }
 }
