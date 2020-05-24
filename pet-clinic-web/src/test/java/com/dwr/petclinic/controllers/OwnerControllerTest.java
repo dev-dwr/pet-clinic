@@ -5,6 +5,7 @@ import com.dwr.petclinic.services.OwnerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -90,5 +91,66 @@ class OwnerControllerTest {
                 .andExpect(model().attribute("owner", hasProperty("id", is(2L))));
     }
 
+    @Test
+    void initCreationFormTest() throws Exception{
+        mockMvc.perform(get("/owners/new"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/createOrUpdateOwnerForm"))
+                .andExpect(model().attributeExists("owner"));
+    }
+    @Test
+    void processCreationFormTest() throws Exception{
+        //ArgumentMatchers.any() matches anything including null
+        when(ownerService.save(any())).thenReturn(Owner.builder().id(1L).build());
 
+        mockMvc.perform(post("/owners/new"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/owners/1"))
+                .andExpect(model().attributeExists("owner"));
+        verify(ownerService, times(1)).save(any());
+    }
+
+    @Test
+    void initUpdateOwnerForm() throws Exception{
+        when(ownerService.findById(anyLong())).thenReturn(Owner.builder().id(1L).build());
+
+        mockMvc.perform(get("/owners/1/edit"))
+                .andExpect(model().attributeExists("owner"))
+                .andExpect(view().name("owners/createOrUpdateOwnerForm"))
+                .andExpect(status().isOk());
+        verify(ownerService,times(1)).findById(anyLong());
+    }
+    @Test
+    void processUpdateOwnerFormTest() throws Exception{
+        when(ownerService.save(any())).thenReturn(Owner.builder().id(1L).build());
+
+        mockMvc.perform(post("/owners/1/edit"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/owners/1"))
+                .andExpect(model().attributeExists("owner"));
+        verify(ownerService, times(1)).save(any());
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
