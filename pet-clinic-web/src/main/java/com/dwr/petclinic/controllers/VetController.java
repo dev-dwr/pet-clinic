@@ -13,10 +13,10 @@ public class VetController {
         this.vetService = vetService;
     }
 
-    @RequestMapping({"/vets","/vets.html","vets/vets", "/vets/vets.html"})
-    public  String listVets(Model model){
+    @RequestMapping({"/vets", "/vets.html", "vets/vets", "/vets/vets.html"})
+    public String listVets(Model model) {
         model.addAttribute("vets", vetService.findAll());
-        return "vets/vets.html"; //vets.html is in vets file
+        return "vets/vets"; //vets.html is in vets file
     }
 
 }
