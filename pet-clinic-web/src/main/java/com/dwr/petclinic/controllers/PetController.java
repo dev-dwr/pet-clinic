@@ -15,6 +15,8 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.beans.PropertyEditorSupport;
+import java.time.LocalDate;
 import java.util.Collection;
 
 @Controller
@@ -33,6 +35,13 @@ public class PetController {
     @InitBinder("owner")
     public void initOwnerBinder(WebDataBinder dataBinder){
         dataBinder.setDisallowedFields("id");
+
+//        dataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
+//            @Override
+//            public void setAsText(String text) throws IllegalArgumentException {
+//                setValue(LocalDate.parse(text));
+//            }
+//        });
     }
 
     //getting collection of pet types, and attribute "types" is gonna be used by Thymeleaf
@@ -79,6 +88,7 @@ public class PetController {
         model.addAttribute("pet", petService.findById(petId));
         return "pets/createOrUpdatePetForm";
     }
+
     @PostMapping("/pets/{petId}/edit")
     public String processUpdateForm(@Valid Pet pet, BindingResult result, Owner owner, Model model){
         if(result.hasErrors()){
